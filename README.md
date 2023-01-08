@@ -6,5 +6,5 @@ Here is the link to the final version of the project.
 
 [Click here to see my final project.](https://christopherrclark.github.io/code-quiz/)
 
-![Here is the screen shot of my final page.](./assets/images/04-web-apis-homework-demo.gif)
+![Here is the screen shot of my final page.](./assets/images/Screenshot_20230108_021114.png)
 
