@@ -4,7 +4,7 @@ The goal of this assignment is to create a timed coding quiz with mulitple choic
 
 Here is the link to the final version of the project.
 
-[Click here to see my final project.](https://github.com/christopherrclark/code-quiz)
+[Click here to see my final project.](https://christopherrclark.github.io/code-quiz/)
 
 ![Here is the screen shot of my final page.](./assets/images/04-web-apis-homework-demo.gif)
 
