@@ -28,7 +28,7 @@ var questions = [
       "3. booleans",
       "4. all of the above"
     ]
-  }
+  },
   {
     question: "Sting values must be enclosed with in ________ when being assigned to variables.",
     correct: "3. quotes",
@@ -38,7 +38,7 @@ var questions = [
       "3. quotes",
       "4. parenthesis"
     ]
-  }
+  },
   {
     question: "A very useful tool during development and debugging for printing content to the debugger is:",
     correct: "4. console.log",
