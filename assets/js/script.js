@@ -4,10 +4,9 @@ var questionArea = document.getElementById("quiz");
 var startButton = document.getElementById("BtnStart");
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
-var secondsRemaining = questions * 5;
+// var secondsRemaining = questions.length * 5;
+var secondsRemaining = 75;
 var currQuestionIdx = 0;     // change this value when moving from one question to another
-
-
 
 function startQuiz(){
   start.style.display = "none";
@@ -19,7 +18,9 @@ function startQuiz(){
 
 function startTimer(){
   var countdown = setInterval(() => {
-    
+    secondsRemaining = secondsRemaining - 1;
+    timerArea.innerHTML = `Time remaining: ${secondsRemaining}`  //template literals
+    // timerArea.innerHTML = "time remaining : "+ secondsRemaining  //concatination
 
     if( secondsRemaining === 0 ){
       clearInterval(countdown)
@@ -31,25 +32,36 @@ function startTimer(){
 
 
 function showQuestion(){
+  console.log (currQuestionIdx)
+  if (currQuestionIdx < 5) {
+
+  
   var currQuestion = questions[currQuestionIdx];  // this is the question object
   var h2Tag = document.createElement("h2");
   questionArea.textContent = "";
-  h2Tag.textContent = currQuestion.question 
+  h2Tag.textContent = currQuestion.question; 
   questionArea.appendChild(h2Tag);   // adds the h2 tag to the div area
   
   for( var i = 0; i<currQuestion.answers.length; i++ ){   // loop through all the answers
-    var button = document.createElement("button");
+    var button = document.createElement("button");  // Creating button DYNAMICALLY!!
 
     if( currQuestion.answers[i] === currQuestion.correct ){
       // set an attribute on this button indicating its the correct one
       // setAttribute()
+      // element.setAttribute("question", "correct")  ????
     }
 
-
-    button.textContent = currQuestion.answers[i];   // i always represents whichever item we're in when we loop over the array
+    button.textContent = currQuestion.answers[i];   // <button> 1. quotes </button>  // i always represents whichever item we're in when we loop over the array
     button.onclick = renderingNextQ;
-    questionArea.appendChild(button);
+    // console.log(button);
+    questionArea.appendChild(button);  // Manipulating the DOM
   }
+} else{
+  showInitalsPage()
+}
+}
+function showInitalsPage(){
+  console.log("inside initals function")
 }
 
 function renderingNextQ(){
@@ -84,6 +96,10 @@ startButton.addEventListener("click", startQuiz);
 //  }
   // else ()
 
+
+// AS A coding boot camp student
+// I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+// SO THAT I can gauge my progress compared to my peers
 
 //GIVEN I am taking a code quiz
 //WHEN I click the start button
