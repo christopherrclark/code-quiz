@@ -1,52 +1,52 @@
 var questions = [
   {
-    question: "What color is the sky?",
-    correct: "blue",
+    question: "Commonly used data types DO not include",
+    correct: "3. alerts",
     answers: [
-      "blue",
-      "orange",
-      "purple",
-      "green"
+      "1. strings",
+      "2. booleans",
+      "3. alerts",
+      "4. numbers"
     ]
   },
   {
-    question: "this is question 2",
-    correct: "blue",
+    question: "The condition in an if/else statement is enclosed with _________.",
+    correct: "3. parenthesis",
     answers: [
-      "blue",
-      "orange",
-      "purple",
-      "green"
+      "1. quotes",
+      "2. curly brackets",
+      "3. parenthesis",
+      "4. square brackets"
     ]
   },
   {
-    question: "this is question 3",
-    correct: "blue",
+    question: "Arrays in JavaScript can be used to store ________.",
+    correct: "4. all of the above",
     answers: [
-      "blue",
-      "orange",
-      "purple",
-      "green"
+      "1. numbers/strings",
+      "2. other arrays",
+      "3. booleans",
+      "4. all of the above"
     ]
   }
   {
-    question: "this is question 4",
-    correct: "blue",
+    question: "Sting values must be enclosed with in ________ when being assigned to variables.",
+    correct: "3. quotes",
     answers: [
-      "blue",
-      "orange",
-      "purple",
-      "green"
+      "1. commas",
+      "2. curly brackets",
+      "3. quotes",
+      "4. parenthesis"
     ]
   }
   {
-    question: "this is question 5",
-    correct: "blue",
+    question: "A very useful tool during development and debugging for printing content to the debugger is:",
+    correct: "4. console.log",
     answers: [
-      "blue",
-      "orange",
-      "purple",
-      "green"
+      "1. JavaScript",
+      "2. terminal/bash",
+      "3. for loops",
+      "4. console.log"
     ]
   }
 ]
