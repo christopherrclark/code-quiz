@@ -4,9 +4,17 @@ var questionArea = document.getElementById("quiz");
 var startButton = document.getElementById("BtnStart");
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
+var questionsGoHere = document.getElementById("question-goes-here");
+var initalPage = document.getElementById("initials_page")
+var initalsInput = document.getElementById("initials")
+var initialsBtn = document.getElementById("initials_btn")
+var finalPage = document.getElementById("finalPage")
 // var secondsRemaining = questions.length * 5;
 var secondsRemaining = 75;
 var currQuestionIdx = 0;     // change this value when moving from one question to another
+
+quiz.style.display = "none"
+finalPage.style.display = "none"
 
 function startQuiz(){
   start.style.display = "none";
@@ -33,51 +41,105 @@ function startTimer(){
 
 function showQuestion(){
   console.log (currQuestionIdx)
-  if (currQuestionIdx < 5) {
 
-  
-  var currQuestion = questions[currQuestionIdx];  // this is the question object
-  var h2Tag = document.createElement("h2");
-  questionArea.textContent = "";
-  h2Tag.textContent = currQuestion.question; 
-  questionArea.appendChild(h2Tag);   // adds the h2 tag to the div area
+  if (currQuestionIdx < 5) {
+    var currQuestion = questions[currQuestionIdx];  // this is the question object
+    var h2Tag = document.createElement("h2");
+    questionsGoHere.textContent = "";
+    h2Tag.textContent = currQuestion.question; 
+    questionsGoHere.appendChild(h2Tag);   // adds the h2 tag to the div area
   
   for( var i = 0; i<currQuestion.answers.length; i++ ){   // loop through all the answers
     var button = document.createElement("button");  // Creating button DYNAMICALLY!!
 
-    if( currQuestion.answers[i] === currQuestion.correct ){
-      // set an attribute on this button indicating its the correct one
-      // setAttribute()
-      // element.setAttribute("question", "correct")  ????
-    }
+
 
     button.textContent = currQuestion.answers[i];   // <button> 1. quotes </button>  // i always represents whichever item we're in when we loop over the array
-    button.onclick = renderingNextQ;
-    // console.log(button);
-    questionArea.appendChild(button);  // Manipulating the DOM
+   
+    button.addEventListener("click", function(event){
+      event.preventDefault()
+      let clickedBtnText = event.target.innerHTML
+      console.log(clickedBtnText)
+      if( clickedBtnText === currQuestion.correct ){
+        renderingNextQ()
+      } else{
+        secondsRemaining = secondsRemaining -10;
+        renderingNextQ()
+      }
+    })
+ 
+    questionsGoHere.appendChild(button);  // Manipulating the DOM
   }
 } else{
   showInitalsPage()
 }
 }
+
 function showInitalsPage(){
-  console.log("inside initals function")
+  quiz.style.display = "none"
+  initalPage.style.display = "block"
+  initialsBtn.addEventListener("click", function(event){
+    event.preventDefault()
+    let userInitials = initalsInput.value
+    saveToLocalStorage(userInitials)
+  })
+}
+
+function saveToLocalStorage(initials){
+  let userData = {
+    initial: initials, 
+    score: secondsRemaining
+  }
+
+  let localStorageData = JSON.parse(localStorage.getItem("quiz_score"))
+  if(localStorageData === null){
+    localStorageData = []
+    localStorageData.push(userData)
+  }else {
+    localStorageData.push(userData)
+  }
+
+  localStorage.setItem("quiz_score", JSON.stringify(localStorageData))
+  showFinalPage()
+}
+
+function showFinalPage(){
+  initalPage.style.display = "none"
+  finalPage.style.display = "block"
 }
 
 function renderingNextQ(){
   currQuestionIdx++;
   showQuestion();
 }
+
+function answerWasCorrect(){
+  // logic goes here for when answer is correct
+  renderingNextQ();
+}
+
+function answerWasWrong(){
+  // logic for when the answer is wrong
+  secondsRemaining = secondsRemaining - 10;
+  renderingNextQ();
+}
+
 function endTheGame(){
 
 }
 
 let elementClicked = false;
 
-// questionArea.addEventListener("click", function(event){
+questionsGoHere.addEventListener("click", function(event){
+  // can we determine if a button was clicked; and then, which button  
+  if( event.target.matches("button") ){
+    if(event.target.getAttribute("data-is-correct") === "yes"){
 
-//   // can we determine if a button was clicked; and then, which button  
-
+    } else {
+      
+    }
+  }
+})
   
 //   if( event.target.matches("button") ){
 //     console.log(event.target)
