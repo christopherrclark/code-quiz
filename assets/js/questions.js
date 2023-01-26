@@ -30,7 +30,7 @@ var questions = [
     ]
   },
   {
-    question: "Sting values must be enclosed with in ________ when being assigned to variables.",
+    question: "String values must be enclosed with in ________ when being assigned to variables.",
     correct: "3. quotes",
     answers: [
       "1. commas",

@@ -151,12 +151,20 @@ questionsGoHere.addEventListener("click", function(event){
 
 startButton.addEventListener("click", startQuiz);
 
-
-
 //   if (event.target){
 //     console.log('button has already been clicked before') 
 //  }
   // else ()
+
+
+// work on getting:
+//   -timer to stop (and game over) after last question is answered or the timer reaches zero
+//   -showing whether the last question was answered correctly or incorrectly
+//   -hiding the "User initials" box until the end of the quiz
+//   -add "Your Done!" "Your final score is ___" then "Enter your initials" and initials box with a "submit" button
+//   -showing the "high score" box with a list of initial and score with "go back" (or "Restart quiz") button and "clear high scores"
+//   -make a "View Highscores" button at the top of the screen, on same line as timer (like in sample animation)
+//   -styling the page in CSS
 
 
 // AS A coding boot camp student
